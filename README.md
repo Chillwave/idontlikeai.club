@@ -5,7 +5,6 @@ SHELLHACKS 2025 PROJECT ENTRY
 * Slow down the spread of AI using our creations without consent. 
 
 Mission Statement:
-# Please keep in mind that this is a kinda long rough draft so feel free to edit it as much as your heart desires <3
 
 "The widespread use of AI has become a significant security and privacy concern that is often overlooked.
 Generative AI consumes numerous forms of media and content for its training, most of which has never been approved for training. 
