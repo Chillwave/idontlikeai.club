@@ -1,6 +1,8 @@
 # idontlikeai.club
 SHELLHACKS 2025 PROJECT ENTRY
 
+https://idontlikeai.club
+
 "SNaiL"
 * Slow down the spread of AI using our creations without consent. 
 
