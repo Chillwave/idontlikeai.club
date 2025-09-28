@@ -146,15 +146,6 @@ Goal: keep visual structure identical but add an **invisible provenance signal**
 
 ---
 
-## 🧪 Judge demo script (3 minutes)
-1. **Login** → click “0Auth login through Okta/Auth0”; show session identity in header.
-2. **Upload** → choose a PDF; see it appear under “Your recent” with timestamp + SHA‑256 short hash.
-3. **Process** → click **Finish Processing**; status flips to **processed**.
-4. **Download** → click **Download Encoded PDF**; show the file properties (same size/structure) and verify the watermark text exists by copy‑pasting with a PDF text extractor.
-5. **Isolation** → log in as a second user; note that uploads are separate (`uploads/<sub>/...`) and invisible to the other account.
-
----
-
 ## ⚙️ Local setup
 ```bash
 python -m venv .venv && source .venv/bin/activate
