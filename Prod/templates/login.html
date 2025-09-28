@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login — SNaiL</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+  </head>
+  <body>
+    <div class="container" style="max-width:560px;padding-top:60px">
+      <div class="card">
+        <h1 style="margin:0 0 6px 0">SNaiL</h1>
+        <!-- Mascot image -->
+        <img
+          src="{{ url_for('static', filename='mascot.png') }}"
+          alt="SNaiL"
+          style="max-width:240px;width:100%;height:auto;margin:8px auto 16px auto;display:block;border-radius:12px"
+        />
+        <p>Sign in via Okta to continue.</p>
+        <div style="display:flex;justify-content:flex-end">
+          <a class="btn primary" href="{{ url_for('login_okta') }}">0Auth login through Okta</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

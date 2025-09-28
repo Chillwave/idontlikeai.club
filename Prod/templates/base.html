@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title or "SNaiL" }}</title>
+      <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+  </head>
+  <body>
+    <div class="sidebar" id="sidebar">
+      <div class="logo">SNaiL</div>
+      <a class="nav {% if request.path.startswith('/home') %}active{% endif %}" href="{{ url_for('home') }}">🏠 Home</a>
+      <a class="nav {% if request.path.startswith('/upload') %}active{% endif %}" href="{{ url_for('upload') }}">⤴️ Upload</a>
+      <a class="nav {% if request.path.startswith('/docs') %}active{% endif %}" href="{{ url_for('docs') }}">📄 Documents</a>
+      <a class="nav" href="{{ url_for('logout') }}">🚪 Logout</a>
+    </div>
+    <div class="main">
+      <div class="header">
+        <div class="header-inner">
+          <div class="topbar">
+            <button class="btn toggle" onclick="toggleSidebar()">☰ Menu</button>
+            <span class="badge">{{ title or "SNaiL" }}</span>
+          </div>
+          <div>Signed in as <strong>{{ session.get('user_name') or session.get('user_email') }}</strong></div>
+        </div>
+      </div>
+      <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for cat, msg in messages %}
+              <div class="flash {{ cat }}">{{ msg }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+        {% block body %}{% endblock %}
+      </div>
+    </div>
+    <script>function toggleSidebar(){ document.getElementById('sidebar').classList.toggle('open'); }</script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% set title = "Upload" %}
+{% block body %}
+  <div class="card">
+    <h3>Upload (PDF only)</h3>
+    <form method="post" enctype="multipart/form-data">
+      <div style="margin:10px 0">
+        <input class="file" type="file" name="file" accept="application/pdf,.pdf" required>
+      </div>
+      <div style="display:flex; gap:10px; justify-content:flex-end">
+        <a class="btn" href="{{ url_for('home') }}">Cancel</a>
+        <button class="btn primary" type="submit">Upload</button>
+      </div>
+    </form>
+    <p class="badge">We validate the file extension and the PDF magic header.</p>
+  </div>
+{% endblock %}

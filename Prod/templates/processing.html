@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% set title = "Processing" %}
+{% block body %}
+  <div class="card">
+    <h3>Processing…</h3>
+    <p><strong>File:</strong> {{ doc.filename }}</p>
+    <p><strong>Submitted:</strong> {{ doc.created_at|ts }} — <strong>SHA-256:</strong> <code class="small">{{ doc.hash }}</code></p>
+    <form method="post" action="{{ url_for('finish', doc_id=doc.id) }}">
+      <button class="btn success" type="submit">Finish Processing</button>
+    </form>
+  </div>
+{% endblock %}

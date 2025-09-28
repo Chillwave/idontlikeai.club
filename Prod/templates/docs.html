@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% set title = "Documents" %}
+{% block body %}
+  <div class="card">
+    <h3>Your Documents</h3>
+    {% if items %}
+      <table class="table">
+        <thead><tr><th>File</th><th>Submitted</th><th>SHA-256</th><th>Status</th><th>Actions</th><th>Encoded</th></tr></thead>
+        <tbody>
+        {% for d in items %}
+          <tr>
+            <td><a href="{{ url_for('doc_detail', doc_id=d.id) }}">{{ d.filename }}</a></td>
+            <td>{{ d.created_at|ts }}</td>
+            <td><code class="small">{{ d.hash }}</code></td>
+            <td><span class="status {{ d.status }}">{{ d.status|capitalize }}</span></td>
+            <td>
+              <form method="post" action="{{ url_for('doc_delete', doc_id=d.id) }}" onsubmit="return confirm('Delete this document?');" style="display:inline">
+                <button class="btn danger" type="submit">Delete</button>
+              </form>
+            </td>
+            <td><a class="btn" href="{{ url_for('download_processed', doc_id=d.id) }}">Get Encoded</a></td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p class="badge">No documents uploaded yet.</p>
+    {% endif %}
+  </div>
+{% endblock %}

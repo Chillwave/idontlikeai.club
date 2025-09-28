@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% set title = "Document" %}
+{% block body %}
+  <div class="card">
+    <h3>Document</h3>
+    <p><strong>File:</strong> {{ doc.filename }}</p>
+    <p><strong>Submitted:</strong> {{ doc.created_at|ts }}</p>
+    <p><strong>SHA-256:</strong> <code class="small">{{ doc.hash }}</code></p>
+    <p><strong>Status:</strong> <span class="status {{ doc.status }}">{{ doc.status|capitalize }}</span></p>
+    <div style="display:flex; gap:10px; flex-wrap:wrap">
+      <a class="btn" href="{{ url_for('download', doc_id=doc.id) }}">Download Original</a>
+      <a class="btn primary" href="{{ url_for('download_processed', doc_id=doc.id) }}">Download Encoded PDF</a>
+      <form method="post" action="{{ url_for('doc_delete', doc_id=doc.id) }}" onsubmit="return confirm('Delete this document?');">
+        <button class="btn danger" type="submit">Delete</button>
+      </form>
+      <a class="btn" href="{{ url_for('docs') }}">Back to list</a>
+    </div>
+  </div>
+{% endblock %}
