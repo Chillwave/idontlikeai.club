@@ -111,7 +111,7 @@ Goal: keep visual structure identical but add an **invisible provenance signal**
 
 1. **Open source PDF** and **create a new output doc**.
 2. **Copy each page’s visuals** into the output (vector art, images, etc.).
-3. **Inject watermark text** (default: `CONFIDENTIAL - SUNSHINE LABORATORIES 2025`) as **white text**:
+3. **Inject watermark text** as **white text**:
    - Placed in benign positions (e.g., top of first page, bottom of last page).
    - Present in the text layer; visually invisible on white backgrounds.
 4. **(Optional) Embed Unicode font** if a TTF exists in `fonts/` (e.g., `DejaVuSans.ttf`) so the watermark survives aggressive text extraction.
